@@ -42,7 +42,7 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
-          echo pytest
+          echo "::set-output name=testtext::$(pytest)\n"
         id: testoutput
       - name: send telegram message
         uses: appleboy/telegram-action@master
@@ -55,7 +55,7 @@ jobs:
             
             Repository: ${{ github.repository }}
             
-            Тесты прошли успешно ${{ steps.testoutput.outputs.SELECTED_COLOR }}
+            Тесты прошли успешно ${{ steps.testoutput.outputs.testtext }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
  
