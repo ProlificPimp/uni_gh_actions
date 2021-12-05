@@ -7,7 +7,7 @@ from decimal import Decimal
 
 
 def test_find_min():
-    assert find_min([Decimal('1'), Decimal('10'), Decimal('20')]) == Decimal('12')
+    assert find_min([Decimal('1'), Decimal('10'), Decimal('20')]) == Decimal('1')
     assert find_min([Decimal('0'), Decimal('10'), Decimal('40'), Decimal('30')]) == Decimal('0')
     assert find_min([Decimal('-5'), Decimal('-10'), Decimal('-99')]) == Decimal('-99')
     assert find_min([Decimal('-8'), Decimal('-10'), Decimal('-86'), Decimal('0')]) == Decimal('-86')
