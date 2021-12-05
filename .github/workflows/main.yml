@@ -42,8 +42,9 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
+          echo "::set-output name=fails::$(pytest --lf)"
           pytest 
-          echo $?
+          
         id: testoutput
       - name: send telegram message
         uses: appleboy/telegram-action@master
@@ -74,6 +75,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             НЕ ОК
+            steps.testoutput.outputs.fails
             
             Repository: ${{ github.repository }}
             
