@@ -46,6 +46,7 @@ jobs:
         id: testoutput
       - name: send telegram message
         uses: appleboy/telegram-action@master
+        if: success()
         with:
           to: ${{'155719408'}}
           token: ${{'5099791264:AAEV_ZS2Z9xJnsbBuYrmcLh3AvoseaYvyJ0'}}
@@ -53,11 +54,32 @@ jobs:
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
+            ВСЕ ОК
+            
             Repository: ${{ github.repository }}
             
-            ${{ steps.testoutput.outputs.testtext }}
+            
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            
+      - name: send telegram message
+        uses: appleboy/telegram-action@master
+        if: failure()
+        with:
+          to: ${{'155719408'}}
+          token: ${{'5099791264:AAEV_ZS2Z9xJnsbBuYrmcLh3AvoseaYvyJ0'}}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            НЕ ОК
+            
+            Repository: ${{ github.repository }}
+            
+            
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+ 
  
         
 
