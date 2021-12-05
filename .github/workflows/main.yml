@@ -75,7 +75,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             НЕ ОК
-            steps.testoutput.outputs.fails
+            ${{ steps.testoutput.outputs.fails }}
             
             Repository: ${{ github.repository }}
             
