@@ -34,6 +34,7 @@ def test_find_prod():
     assert find_prod([Decimal('5'), Decimal('2')]) == Decimal('10')
     assert find_prod([Decimal('33'), Decimal('-5')]) == Decimal('-165')
     assert find_prod([Decimal('3.3'), Decimal('-5')]) == Decimal('-16.5')
+    assert find_prod([Decimal('1'), Decimal('5')]) == Decimal('5')
 
 def test_stress():
     seed(44)
