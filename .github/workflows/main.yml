@@ -44,6 +44,7 @@ jobs:
         run: |
           pytest
       - name: send telegram message on push
+        if: ${{ pytest }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{'155719408'}}
@@ -54,4 +55,23 @@ jobs:
             
             Repository: ${{ github.repository }}
             
+            Тесты прошли успешно
+            
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+      - name: send telegram message on push
+        if: ${{ !pytest }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{'155719408'}}
+          token: ${{'5099791264:AAEV_ZS2Z9xJnsbBuYrmcLh3AvoseaYvyJ0'}}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            Тесты прошли успешно
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+        
+
