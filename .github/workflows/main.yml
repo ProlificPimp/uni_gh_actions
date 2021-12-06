@@ -45,7 +45,7 @@ jobs:
         
          echo "::set-ouput name=fails::$(pytest)\n"
         
-        id: testoutput
+        id: testoutput1
         
       - name: send telegram message
         uses: appleboy/telegram-action@master
@@ -59,7 +59,7 @@ jobs:
             
             Все тесты прошли ОК
             
-            ${{ steps.testoutput.outputs.fails }}
+            Результаты ${{ steps.testoutput1.outputs.fails }}
             
             Repository: ${{ github.repository }}
             
