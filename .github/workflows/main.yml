@@ -43,7 +43,7 @@ jobs:
       - name: Run unit tests
         run: |
           
-          echo "::set-output name=ttest::$(pytest -rf)"
+          echo "::set-output name=ttest::$(pytest)"
           
           
         id: testoutput
