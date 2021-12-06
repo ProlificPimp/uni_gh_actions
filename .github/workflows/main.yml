@@ -42,9 +42,10 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
-          pytest 
+          echo "::workflow-command parameter1={data},parameter2={data}::{pytest -rf | grep FAILED}"
           
         id: testoutput
+        
       - name: send telegram message
         uses: appleboy/telegram-action@master
         if: success()
@@ -74,6 +75,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
+            ${{join(steps.testoutput.outputs.*, '\n')}} 
             
             Repository: ${{ github.repository }}
             
