@@ -42,7 +42,6 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
-          echo "::set-output name=fails::$(pytest --cache-show lastfailed)"
           pytest 
           
         id: testoutput
@@ -75,7 +74,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             НЕ ОК
-            ${{ steps.testoutput.outputs.fails }}
+            ${{ pytest --cache-show lastfailed }}
             
             Repository: ${{ github.repository }}
             
