@@ -43,7 +43,7 @@ jobs:
       - name: Run unit tests
         run: |
         
-         echo "::set-ouput name=fails::$(pytest)\n"
+         pytest
         
         id: testoutput1
         
@@ -58,8 +58,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Все тесты прошли ОК
-            
-            Результаты ${{ steps.testoutput1.outputs.* }}
+        
             
             Repository: ${{ github.repository }}
             
