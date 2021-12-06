@@ -77,7 +77,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
-            ${{join(steps.testoutput.outputs.*, '\n')}} 
+            ${{"::workflow-command parameter1={data},parameter2={data}::{pytest -rf}"}} 
             
             Repository: ${{ github.repository }}
             
