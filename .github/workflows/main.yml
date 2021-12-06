@@ -77,9 +77,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
-            ${{ echo "::set-output name=ttest::$(pytest -rf)\n" }}
-            
-            Repository: ${{ steps.testoutput.outputs.testt }}
+            ${{ steps.testoutput.outputs.testt }}
             
             
             
