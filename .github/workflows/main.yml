@@ -42,7 +42,7 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
-          pytest
+          
           echo "::set-output name=ttest::$(pytest -rf)"
           
           
@@ -59,7 +59,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Все тесты прошли ОК
-            
+            ${{ (steps.testoutput.outputs.testt) }}
             Repository: ${{ github.repository }}
             
             
