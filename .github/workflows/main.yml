@@ -74,7 +74,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             НЕ ОК
-            ${{ pytest --cache-show lastfailed }}
+            ${{ *\.pytest_cache }}
             
             Repository: ${{ github.repository }}
             
