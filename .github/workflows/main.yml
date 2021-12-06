@@ -55,7 +55,7 @@ jobs:
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
-            ВСЕ ОК
+            Все тесты прошли ОК
             
             Repository: ${{ github.repository }}
             
@@ -73,8 +73,7 @@ jobs:
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
-            НЕ ОК
-            ${{ *\.pytest_cache }}
+            Ошибка в тестах НЕ ОК
             
             Repository: ${{ github.repository }}
             
