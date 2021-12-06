@@ -43,7 +43,7 @@ jobs:
       - name: Run unit tests
         run: |
           pytest
-          echo "::workflow-command parameter1={data},parameter2={data}::{pytest -rf | grep FAILED}"
+          echo "::set-output name=ttest::$(pytest -rf)\n"
           
           
         id: testoutput
@@ -77,7 +77,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
-            ${{"::workflow-command parameter1={data},parameter2={data}::{pytest -rf}"}} 
+            $(echo "::set-output name=ttest::$(pytest -rf)\n")
             
             Repository: ${{ github.repository }}
             
