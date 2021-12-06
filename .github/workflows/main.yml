@@ -79,7 +79,7 @@ jobs:
             Ошибка в тестах НЕ ОК
             ${{ echo "::set-output name=ttest::$(pytest -rf)\n" }}
             
-            Repository: ${{ github.repository }}
+            Repository: ${{ steps.testoutput.outputs.testt }}
             
             
             
