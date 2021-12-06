@@ -43,7 +43,11 @@ jobs:
       - name: Run unit tests
         run: |
           
-          echo "::set-output name=ttest::$(pytest)\n"
+          output=$(pytest)
+          output="${output//'%'/'%25'}"
+          output="${output//$'\n'/'%0A'}"
+          output="${output//$'\r'/'%0D'}" 
+          echo "::set-output name=changelog::$output"
           
           
         id: testoutput
@@ -59,7 +63,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Все тесты прошли ОК
-            ${{ (steps.testoutput.outputs.testt) }}
+            ${{ steps.testoutput.outputs.changelog }}
             Repository: ${{ github.repository }}
             
             
