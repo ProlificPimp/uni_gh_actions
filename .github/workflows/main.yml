@@ -41,7 +41,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: Run unit tests
-        run: pytest
+        run: |
+        
+         echo "::set-ouput name=fails::$(pytest)\n"
+        
         id: testoutput
         
       - name: send telegram message
@@ -55,7 +58,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Все тесты прошли ОК
-            ${{ steps.testoutput.outputs.changelog }}
+            ${{ steps.testoutput.outputs.fails }}
             Repository: ${{ github.repository }}
             
             
