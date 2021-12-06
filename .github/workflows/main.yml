@@ -58,7 +58,9 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Все тесты прошли ОК
+            
             ${{ steps.testoutput.outputs.fails }}
+            
             Repository: ${{ github.repository }}
             
             
@@ -76,7 +78,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
-            ${{ steps.testoutput.outputs.changelog }}
+
             
             
             
