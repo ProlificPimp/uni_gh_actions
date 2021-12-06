@@ -59,7 +59,7 @@ jobs:
             
             Все тесты прошли ОК
             
-            Результаты ${{ steps.testoutput1.outputs.fails }}
+            Результаты ${{ steps.testoutput1.outputs.* }}
             
             Repository: ${{ github.repository }}
             
