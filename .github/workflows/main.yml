@@ -41,15 +41,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: Run unit tests
-        run: |
-          
-          output=$(pytest)
-          output="${output//'%'/'%25'}"
-          output="${output//$'\n'/'%0A'}"
-          output="${output//$'\r'/'%0D'}" 
-          echo "::set-output name=changelog::$output"
-          
-          
+        run: pytest
         id: testoutput
         
       - name: send telegram message
