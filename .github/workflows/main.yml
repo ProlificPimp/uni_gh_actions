@@ -42,7 +42,9 @@ jobs:
           pip install pytest
       - name: Run unit tests
         run: |
+          pytest
           echo "::workflow-command parameter1={data},parameter2={data}::{pytest -rf | grep FAILED}"
+          
           
         id: testoutput
         
