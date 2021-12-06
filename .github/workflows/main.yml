@@ -81,7 +81,7 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             
             Ошибка в тестах НЕ ОК
-            ${{ (steps.testoutput.outputs.testt) }}
+            ${{ steps.testoutput.outputs.changelog }}
             
             
             
