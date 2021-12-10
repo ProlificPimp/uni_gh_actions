@@ -100,3 +100,4 @@ def test_tm():
         find_prod(new_res)
         end_time = tm.perf_counter() - start_time
         s = s + f'\n{step} step.     {x} numbs in file.     {end_time} seconds.'
+     print(s)
