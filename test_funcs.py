@@ -3,7 +3,6 @@ from random import randint, seed, uniform
 from funcs import find_min, find_max, find_sum, find_prod, read_file
 import operator
 from decimal import Decimal
-import time as tm
 
 
 
@@ -83,9 +82,7 @@ def test_read_file():
 
 def test_tm():
     step = 0
-    f = open('timetest.txt', 'w')
-    f.write('')
-    f.close()
+    s = ''
     for i in range(5000, 23000, 3000):
         x = 20*i
         step = step + 1
@@ -102,6 +99,4 @@ def test_tm():
         find_sum(new_res)
         find_prod(new_res)
         end_time = tm.perf_counter() - start_time
-        f = open('timetest.txt', 'a')
-        f.write(f'\n{step} step.     {x} numbs in file.     {end_time} seconds.')
-        f.close()
+        s = s + f'\n{step} step.     {x} numbs in file.     {end_time} seconds.'
