@@ -3,7 +3,7 @@ from random import randint, seed, uniform
 from funcs import find_min, find_max, find_sum, find_prod, read_file
 import operator
 from decimal import Decimal
-
+import time as tm
 
 
 def test_find_min():
