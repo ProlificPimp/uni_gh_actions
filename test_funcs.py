@@ -80,3 +80,27 @@ def test_read_file():
 
     assert read_file('nums2.txt') == 'Error'
 
+def test_tm():
+    step = 0
+    f = open('timetest.txt', 'w')
+    f.write('')
+    f.close()
+    for i in range(5000, 23000, 3000):
+        x = 20*i
+        step = step + 1
+        res = ''
+        for k in range(x):
+            res = res + str(randint(1000, 9999)) + ' '
+        f = open('nums.txt', 'w')
+        f.write(res)
+        f.close()
+        start_time = tm.perf_counter()
+        new_res = read_file('nums.txt')
+        find_min(new_res)
+        find_max(new_res)
+        find_sum(new_res)
+        find_prod(new_res)
+        end_time = tm.perf_counter() - start_time
+        f = open('timetest.txt', 'a')
+        f.write(f'\n{step} step.     {x} numbs in file.     {end_time} seconds.')
+        f.close()
