@@ -1,6 +1,6 @@
-# TZ3
+# Учебный проект. UNIT Тестирование и работа с Github Actions.
 
-ТЗ_3 Маниович Никита 2006
+
 
 [![TEST](https://github.com/itsallyourfault/TZ3/actions/workflows/main.yml/badge.svg)](https://github.com/itsallyourfault/TZ3/actions/workflows/main.yml)
 
@@ -9,4 +9,3 @@
 Результаты тестов приходят через телеграм-бот владельцу.
 
 
-Test Commit
